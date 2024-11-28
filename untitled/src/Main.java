@@ -6,7 +6,7 @@ public class Main {
 
         RoadPart part1 = new RoadPart();
         RoadPart part2 = new RoadPart();
-        RoadPart part3 = new RoadPart();
+        RoadPart part3 = new Bridge();
         RoadPart part4 = new RoadPart();
         RoadPart part5 = new RoadPart();
 
@@ -14,6 +14,8 @@ public class Main {
         part2.set_next(part3);
         part3.set_next(part4);
         part4.set_next(part5);
+
+        ((Bridge) part3).open();
 
         String road = part1.showRoad();
 
