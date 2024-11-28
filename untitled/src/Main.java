@@ -5,8 +5,8 @@ public class Main {
         System.out.println("Hello world!");
 
         RoadPart part1 = new RoadPart();
-        RoadPart part2 = new RoadPart();
-        RoadPart part3 = new Bridge();
+        Barrier part2 = new Barrier();
+        Bridge part3 = new Bridge();
         RoadPart part4 = new RoadPart();
         RoadPart part5 = new RoadPart();
 
@@ -15,10 +15,15 @@ public class Main {
         part3.set_next(part4);
         part4.set_next(part5);
 
-        ((Bridge) part3).open();
+        BridgeOperatorFacade bridgeOperator
+                = new BridgeOperatorFacade(part2, part3);
 
+        bridgeOperator.open();
         String road = part1.showRoad();
+        System.out.println(road);
 
+        bridgeOperator.close();
+        road = part1.showRoad();
         System.out.println(road);
     }
 }
